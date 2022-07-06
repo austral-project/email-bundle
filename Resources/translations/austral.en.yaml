@@ -1,0 +1,77 @@
+pages:
+  names:
+    email:
+      singular:                                 Email
+      plural:                                   Emails
+    emailTemplate:
+      singular:                                 Email
+      plural:                                   Emails
+    emailHistory:
+      singular:                                 History
+      plural:                                   Histories
+
+fields:
+  emailsList:
+    entitled:             Emails list
+  entitledEmail:
+    entitled:             Email entitled
+  contentEmail:
+    entitled:             Email content
+  emailFrom:
+    entitled:             Email from
+  emailsTo:
+    entitled:             Emails to
+  emailsToCc:
+    entitled:             Emails to Cc
+  emailsToCci:
+    entitled:             Emails to Cci
+  emailReplyTo:
+    entitled:             Reply to
+  vars:
+    entitled:             Available variable(s)
+  varsGeneric:
+    entitled:             Generic variable(s)
+  histories:
+    entitled:             Send history
+  emailTemplateKeyname:
+    entitled:             Email template keyname
+  logs:
+    entitled:             Logs
+
+fieldset:
+  emails:                     Emails Configuration
+  logs:                       Logs
+  parametersSendEmail:        Email parameters
+  parametersAutoSendEmail:    Email parameters (Auto)
+  viewer:                     Viewer
+
+button:
+  email:
+    resend:               Resend email
+    test-send:            Test send
+    view-render:          View the email render
+  new:
+    emailAddress:         Add new email address
+
+choices:
+  email:
+    type:
+      wysiwyg:            Wysiwyg
+      template:           Template
+
+action:
+  send-email:
+    success:              Email has sent successfully
+    error:                Email has not sent
+
+configuration:
+  check:
+    modules:
+      email:
+        title:                                  Email bundle
+        async:
+          entitled:                             Send asynchrone ?
+        create:
+          entitled:                             Create email if no exist ?
+        vars:
+          entitled:                             Vars list configure

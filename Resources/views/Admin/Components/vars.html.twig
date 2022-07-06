@@ -1,0 +1,17 @@
+<div class="field-content">
+  <label for="form_master_type" class="required">{{ "fields.vars.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="vars-list-content">
+    <span class="email-vars-type">{{ "fields.varsGeneric.entitled"|trans({}, form.mapper.translateDomain) }}</span>
+    <ul class="vars-list">
+      {% for key, var in emailVarsDefault %}
+        <li class="element"><span class="key">%{{ key }}%</span>{{ var }}</li>
+      {% endfor %}
+    </ul>
+    <span class="email-vars-type"></span>
+    <ul class="vars-list">
+      {% for var in form.mapper.object.vars %}
+        <li class="element">%{{ var }}%</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

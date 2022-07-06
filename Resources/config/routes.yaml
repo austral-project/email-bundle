@@ -1,0 +1,20 @@
+##### Email Iframe view
+email_iframe_view_not_anonymize:
+  path: /view/{type}/{id}/{objectId}
+  controller: Austral\EmailBundle\Controller\EmailController::iframeView
+  requirements:
+    id:         "^((?!_).)*"
+    type:       "^((?!_).)*"
+    objectId:   "^((?!_).)*"
+
+email_iframe_view:
+  path: /view/{type}/{id}
+  controller: Austral\EmailBundle\Controller\EmailController::iframeView
+  requirements:
+    id:   "^((?!_).)*"
+    type:   "^((?!_).)*"
+
+##### Check Command Async Email
+email_check_async_command:
+  path:       /check/async-command
+  controller: Austral\EmailBundle\Controller\EmailController::checkAsynCommand

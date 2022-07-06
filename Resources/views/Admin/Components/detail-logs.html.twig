@@ -1,0 +1,14 @@
+<div id="field-form_master_emailsToCc" class="field-content field-content-template">
+  <div class="field field-typeValue">
+    <ul class="list">
+      {% for key, values in form.mapper.object.logs %}
+        {% if values %}
+          <li>
+            <span class="title">{{ values.date|date("Y-m-d H:i:s") }} : <strong>{{ values.status }}</strong></span>
+            <div class="log">{{ values.message  }}</div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

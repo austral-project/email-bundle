@@ -1,0 +1,73 @@
+pages:
+  names:
+    email:
+      singular:                                 Email
+      plural:                                   Emails
+    emailTemplate:
+      singular:                                 Email
+      plural:                                   Emails
+    emailHistory:
+      singular:                                 Historique
+      plural:                                   Historiques
+
+fields:
+  emailsList:
+    entitled:             Liste d'emails
+  entitledEmail:
+    entitled:             Intitulé de l'email
+  contentEmail:
+    entitled:             Contenu de l'email
+  emailFrom:
+    entitled:             Expéditeur
+  emailsTo:
+    entitled:             Destinataire(s)
+  emailsToCc:
+    entitled:             Destinataire(s) copie(s)
+  emailsToCci:
+    entitled:             Destinataire(s) copie(s) cachée(s)
+  emailReplyTo:
+    entitled:             Email de réponse
+  vars:
+    entitled:             Variable(s) disponible(s)
+  varsGeneric:
+    entitled:             Variable(s) générique(s)
+  histories:
+    entitled:             Historique(s) d'envoi(s)
+  emailTemplateKeyname:
+    entitled:             Email template keyname
+  logs:
+    entitled:             Logs
+
+fieldset:
+  emails:                     Configuration des emails
+  logs:                       Logs
+  parametersSendEmail:        Paramètres de l'email
+  parametersAutoSendEmail:    Paramètres de l'email (Auto)
+  viewer:                     Rendu
+
+
+button:
+  email:
+    resend:               Renvoyer l'email
+    test-send:            Tester l'envoi
+    view-render:          Voir le rendu de l'email
+  new:
+    emailAddress:         Ajout d'une nouvelle adresse email
+
+choices:
+  email:
+    type:
+      wysiwyg:            Wysiwyg
+      template:           Template
+
+configuration:
+  check:
+    modules:
+      email:
+        title:                                  Email bundle
+        async:
+          entitled:                             Envoi en asynchrone ?
+        create:
+          entitled:                             Créer un e-mail s'il n'existe pas?
+        vars:
+          entitled:                             Configurer la liste des variables

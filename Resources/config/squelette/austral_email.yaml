@@ -1,0 +1,15 @@
+austral_email:
+  create_not_exist:         true
+  async:                    true
+  async_command:            false
+  history:
+    enabled:                true
+    anonymize:              true
+  defaults:
+    from:                   email_from
+    to:                     email_to
+    vars:
+      email_from:           noreply@your-domain.com
+      email_to:             contact@your-domain.com
+
+

@@ -1,0 +1,59 @@
+services:
+  _defaults:
+    autowire:       true
+    autoconfigure:  true
+    public:         true
+
+  ##### Listener
+  austral.email.configuration_checker.listener:
+    class:          Austral\EmailBundle\Listener\ConfigurationCheckerListener
+    arguments:      ["@austral.email.config"]
+    tags:
+      - { name: kernel.event_listener, event: "austral.event.admin.configuration_checker", method: configurationChecker }
+
+parameters:
+
+  austral.admin.class.email_template.class:                        Austral\EmailBundle\Admin\EmailTemplateAdmin
+  austral.admin.class.email_history.class:                         Austral\EmailBundle\Admin\EmailHistoryAdmin
+
+  austral.admin.modules.email_bundle.email.enabled:                   true
+  austral.admin.modules.email_bundle.email.template.enabled:          true
+  austral.admin.modules.email_bundle.email.history.enabled:           true
+
+  austral_admin.modules.email_bundle:
+    email:
+      enabled:                    "%austral.admin.modules.email_bundle.email.enabled%"
+      navigation:
+        position:                 700
+      name:                       "Configuration"
+      picto:                      "austral-picto-mail"
+      route:                      "email"
+      translate:                  "male_v"
+      actions:
+        index:                    "listChildrenModules"
+      children:
+        template:
+          entity_manager:         "austral.entity_manager.email_template"
+          enabled:                "%austral.admin.modules.email_bundle.email.template.enabled%"
+          name:                   "Email"
+          picto:                  "austral-picto-mail"
+          pictoTile:              "email"
+          route:                  "template"
+          class:                  "%austral.admin.class.email_template.class%"
+          translate:              "male_v"
+          extendActions:
+            send-email:           sendEmail
+        history:
+          entity_manager:         "austral.entity_manager.email_history"
+          enabled:                "%austral.admin.modules.email_bundle.email.history.enabled%"
+          name:                   "History"
+          pictoTile:              "stats"
+          picto:                  "austral-picto-historic"
+          route:                  "history"
+          class:                  "%austral.admin.class.email_history.class%"
+          translate:              "female_c"
+          disabledActions:
+            - create
+            - duplicate
+          extendActions:
+            send-email:           sendEmail

@@ -1,0 +1,79 @@
+services:
+  _defaults:
+    autowire:       false
+    autoconfigure:  false
+    public:         true
+
+##### Event Subscriber
+  austral.email_sender.event_subscriber:
+    class:          Austral\EmailBundle\EventSubscriber\EmailSenderSubscriber
+    arguments:      [ "@austral.email_sender"]
+    tags:
+      - { name: kernel.event_subscriber }
+
+  austral.email_history.event_subscriber:
+    class:          Austral\EmailBundle\EventSubscriber\EmailHistorySubscriber
+    arguments:      [ "@austral.entity_manager.email_history" ]
+    tags:
+      - { name: kernel.event_subscriber }
+
+  austral.email_template_view.event_subscriber:
+    class:          Austral\EmailBundle\EventSubscriber\EmailTemplateViewSubscriber
+    arguments:      [ "@austral.email.config" ]
+    tags:
+      - { name: kernel.event_subscriber }
+
+##### Messenger
+  austral.email_sender.message_handler:
+    class:          Austral\EmailBundle\Message\EmailSenderMessageHandler
+    arguments:      [ "@austral.email_sender", "@austral.entity_manager" ]
+    tags:
+      - name:       messenger.message_handler
+        handles:    Austral\EmailBundle\Message\EmailSenderMessage
+
+##### Entities Manager #####
+
+  ##### Email Entity Manager
+  austral.entity_manager.email_template:
+    class:          Austral\EmailBundle\EntityManager\EmailTemplateEntityManager
+    arguments:      [ "@doctrine.orm.entity_manager",  "@event_dispatcher", "%austral.entity.email_template.class%" ]
+
+  ##### Email Entity Manager
+  austral.entity_manager.email_history:
+    class:          Austral\EmailBundle\EntityManager\EmailHistoryEntityManager
+    arguments:      [ "@doctrine.orm.entity_manager",  "@event_dispatcher", "%austral.entity.email_history.class%" ]
+
+##### Parameters #####
+  austral.email.config:
+    class:          Austral\EmailBundle\Configuration\EmailConfiguration
+    arguments:      ["%austral_email_config%"]
+
+##### Services
+
+  ##### Email Sender
+  austral.email_sender:
+    class:          Austral\EmailBundle\Services\EmailSender
+    arguments:
+      - "@mailer.mailer"
+      - "@request_stack"
+      - "@austral.email_transform"
+      - "@austral.entity_manager.email_template"
+      - "@austral.email.config"
+      - "@austral.tools.services.status-checker"
+      - "@event_dispatcher"
+      - "@?messenger.default_bus"
+
+  ##### Email Transform
+  austral.email_transform:
+    class:          Austral\EmailBundle\Services\EmailTransform
+    arguments:
+      - "@twig"
+      - "@austral.email.config"
+      - "@?austral.website.config_replace_dom"
+
+##### Form Type
+  austral.email.emailAddress_form_type:
+    class:          Austral\EmailBundle\Form\Type\EmailAddressFormType
+    arguments:      [ "@security.authorization_checker" ]
+    tags:
+      - { name: form.type , alias: austral_emailAddress_form_type}

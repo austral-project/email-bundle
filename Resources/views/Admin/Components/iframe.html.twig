@@ -1,0 +1,10 @@
+{% if type is not defined %}
+  {% set type = "template" %}
+{% endif %}
+
+<div id="field-form_master_entitled" class="field-content field-content-template">
+  <label>{{ "fields.contentEmail.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="field field-typeIframe">
+    <iframe src="{{ path("email_iframe_view", {id: form.object is defined ? form.object.id : form.mapper.object.id, type: type}) }}" width="100%" height="800px"></iframe>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+parameters:
+
+##### Entities Class
+  austral.entity.email_template.class:                                      App\Entity\Austral\EmailBundle\EmailTemplate
+  austral.entity.email_template_translate.class:                            App\Entity\Austral\EmailBundle\EmailTemplateTranslate
+  austral.entity.email_history.class:                                       App\Entity\Austral\EmailBundle\EmailHistory
+
+##### Doctrine Resolve target Entities
+  austral.resolve_target_entities.email:
+    Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface:           "%austral.entity.email_template.class%"
+    Austral\EmailBundle\Entity\Interfaces\EmailTemplateTranslateInterface:  "%austral.entity.email_template_translate.class%"
+    Austral\EmailBundle\Entity\Interfaces\EmailHistoryInterface:            "%austral.entity.email_history.class%"
+
+##### Messenger Resolve routing
+  austral.resolve.messenger.routing.email_sender:
+    'Austral\EmailBundle\Message\EmailSenderMessage':                       [ async ]

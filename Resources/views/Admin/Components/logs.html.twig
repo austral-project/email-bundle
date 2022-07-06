@@ -1,0 +1,12 @@
+<div class="value-content">
+  <ul class="list">
+    {% for key, values in object.logs %}
+      {% if values %}
+        <li class="">
+          {{ values.date|date("Y-m-d H:i:s") }} : <strong>{{ values.status }}</strong><br/>
+          <span class="log">{{ values.message|u.truncate(180, '...', false)  }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

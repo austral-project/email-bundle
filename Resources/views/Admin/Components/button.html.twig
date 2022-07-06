@@ -1,0 +1,27 @@
+<div class="field-content">
+{% set data = {} %}
+{%- if field.vars.target is defined -%}
+  {% set data = {
+    "target": "_blank"
+  } %}
+{%- else -%}
+  {% set data = {
+    "data-click-actions": "reload",
+    "data-reload-elements-key": "all"
+  } %}
+{%- endif -%}
+
+{{ include("@AustralDesign/Components/Button/action.html.twig",
+  {
+    url:      field.vars.link,
+    class:    "button-action full",
+    title:    field.vars.entitled|trans({}, form.mapper.translateDomain),
+    data:     data,
+    reverse:  true,
+    picto:    field.vars.picto
+  }
+)}}
+</div>
+
+
+

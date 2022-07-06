@@ -1,0 +1,43 @@
+<div id="field-form_master_emailFrom" class="field-content field-content-template">
+  <label>{{ "fields.emailFrom.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="field field-typeValue">
+    <span class="value">{{ emailTransform.emailFrom }}</span>
+  </div>
+</div>
+
+<div id="field-form_master_emailsTo" class="field-content field-content-template">
+  <label>{{ "fields.emailsTo.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="field field-typeValue">
+    <span class="value">{{ emailTransform.emailsTo|join(", ") }}</span>
+  </div>
+</div>
+
+<div id="field-form_master_emailsToCc" class="field-content field-content-template">
+  <label>{{ "fields.emailsToCc.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="field field-typeValue">
+    <span class="value">{{ emailTransform.emailsToCc|join(", ") }}</span>
+  </div>
+</div>
+
+<div id="field-form_master_emailsToCci" class="field-content field-content-template">
+  <label>{{ "fields.emailsToCci.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="field field-typeValue">
+    <span class="value">{{ emailTransform.emailsToCci|join(", ") }}</span>
+  </div>
+</div>
+
+<div id="field-form_master_entitled" class="field-content field-content-template">
+  <label>{{ "fields.emailReplyTo.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="field field-typeValue">
+    <span class="value">{{ emailTransform.emailReplyTo }}</span>
+  </div>
+</div>
+
+<div id="field-form_master_entitled" class="field-content field-content-template">
+  <label>{{ "fields.entitledEmail.entitled"|trans({}, form.mapper.translateDomain) }}</label>
+  <div class="field field-typeValue">
+    <span class="value">{{ emailTransform.entitledEmail }}</span>
+  </div>
+</div>
+
+{{ include('@AustralEmail/Admin/Components/iframe.html.twig', {type: "history"}) }}
