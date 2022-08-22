@@ -72,6 +72,7 @@ class EmailSenderMessageHandler implements MessageHandlerInterface
     $this->emailSender->setLanguage($emailSenderMessage->getLanguage())
       ->setEmailTemplate($emailTemplate)
       ->addVars($emailSenderMessage->getVars())
+      ->addAttachementFiles($emailSenderMessage->getAttachementFiles())
       ->setObject($object);
 
     if($emailSenderMessage->getEmailHistoryId())

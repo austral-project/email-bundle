@@ -53,15 +53,21 @@ class EmailSenderMessage
   private array $vars;
 
   /**
+   * @var array
+   */
+  private array $attachementFiles;
+
+  /**
    * EmailSenderEvent constructor.
    *
    * @param EmailTemplateInterface $emailTemplate
    * @param string $language
    * @param EntityInterface|null $object
    * @param array $vars
+   * @param array $attachementFiles
    * @param EmailHistoryInterface|null $emailHistory
    */
-  public function __construct(EmailTemplateInterface $emailTemplate, string $language, ?EntityInterface $object = null, array $vars = array(), ?EmailHistoryInterface $emailHistory = null)
+  public function __construct(EmailTemplateInterface $emailTemplate, string $language, ?EntityInterface $object = null, array $vars = array(), array $attachementFiles = array(), ?EmailHistoryInterface $emailHistory = null)
   {
     $this->emailTemplateKeyname = $emailTemplate->getKeyname();
     $this->emailHistoryId = $emailHistory ? $emailHistory->getId() : $emailHistory;
@@ -69,6 +75,7 @@ class EmailSenderMessage
     $this->objectId = $object ? $object->getId() : null;
     $this->language = $language;
     $this->vars = $vars;
+    $this->attachementFiles = $attachementFiles;
   }
 
   /**
@@ -109,6 +116,11 @@ class EmailSenderMessage
   public function getVars(): array
   {
     return $this->vars;
+  }
+
+  public function getAttachementFiles(): array
+  {
+    return $this->attachementFiles;
   }
 
   /**

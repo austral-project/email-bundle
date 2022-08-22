@@ -18,6 +18,7 @@ use Austral\EmailBundle\EntityManager\EmailTemplateEntityManager;
 use Austral\EmailBundle\Event\EmailHistoryEvent;
 use Austral\EmailBundle\Message\EmailSenderMessage;
 use Austral\EmailBundle\Model\EmailAddress;
+use Austral\EmailBundle\Model\EmailAttachementFile;
 use Austral\EmailBundle\Model\EmailLog;
 
 use Austral\EntityBundle\Entity\EntityInterface;
@@ -115,6 +116,11 @@ class EmailSender
    * @var array
    */
   protected array $vars = array();
+
+  /**
+   * @var array
+   */
+  protected array $attachementFiles = array();
 
   /**
    * ContentBlockSubscriber constructor.
@@ -280,6 +286,20 @@ class EmailSender
   }
 
   /**
+   * @param array $attachementFiles
+   *
+   * @return EmailSender
+   */
+  public function addAttachementFiles(array $attachementFiles = array()): EmailSender
+  {
+    if($attachementFiles)
+    {
+      $this->attachementFiles = $attachementFiles;
+    }
+    return $this;
+  }
+
+  /**
    * @throws Exception
    */
   public function execute()
@@ -332,6 +352,7 @@ class EmailSender
               $this->language,
               $this->object,
               $this->vars,
+              $this->attachementFiles,
               $this->emailHistoryEvent ? $this->emailHistoryEvent->getEmailHistory() : null
             )
           );
@@ -391,6 +412,20 @@ class EmailSender
         }
         $emailTemplateSymfony->subject($this->emailTransform->getEntitledEmail());
         $emailTemplateSymfony->html($this->emailTransform->getContentEmail(true));
+
+        if($this->attachementFiles)
+        {
+          foreach($this->attachementFiles as $attachementFile)
+          {
+            if(!$attachementFile instanceof EmailAttachementFile)
+            {
+              $attachementFile = new EmailAttachementFile($attachementFile);
+            }
+            if(file_exists($attachementFile->getPath())) {
+              $emailTemplateSymfony->attachFromPath($attachementFile->getPath(), $attachementFile->getName(), $attachementFile->getMimeType());
+            }
+          }
+        }
       }
       catch (Exception $exception) {
         $emailLog = new EmailLog();

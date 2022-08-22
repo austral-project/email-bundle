@@ -41,6 +41,11 @@ class EmailSenderEvent extends Event
   private array $vars;
 
   /**
+   * @var array
+   */
+  private array $attachementFiles;
+
+  /**
    * @var string|null
    */
   private ?string $language;
@@ -63,13 +68,15 @@ class EmailSenderEvent extends Event
    * @param string $language
    * @param ?EntityInterface $object
    * @param array $vars
+   * @param array $attachementFiles
    * @param string $async
    */
-  public function __construct(string $emailKeyname, string $language, ?EntityInterface $object = null, array $vars = array(), string $async = "default")
+  public function __construct(string $emailKeyname, string $language, ?EntityInterface $object = null, array $vars = array(), array $attachementFiles = array(), string $async = "default")
   {
     $this->emailKeyname = $emailKeyname;
     $this->object = $object;
     $this->vars = $vars;
+    $this->attachementFiles = $attachementFiles;
     $this->language = $language;
     $this->async = $async;
   }
@@ -96,6 +103,14 @@ class EmailSenderEvent extends Event
   public function getVars(): array
   {
     return $this->vars;
+  }
+
+  /**
+   * @return array
+   */
+  public function getAttachementFiles(): array
+  {
+    return $this->attachementFiles;
   }
 
   /**

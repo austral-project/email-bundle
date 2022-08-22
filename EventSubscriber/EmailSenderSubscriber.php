@@ -54,6 +54,7 @@ class EmailSenderSubscriber implements EventSubscriberInterface
    * @param EmailSenderEvent $emailSenderEvent
    *
    * @throws NonUniqueResultException
+   * @throws \Exception
    */
   public function send(EmailSenderEvent $emailSenderEvent)
   {
@@ -69,6 +70,7 @@ class EmailSenderSubscriber implements EventSubscriberInterface
 
     $this->emailSender->setObject($emailSenderEvent->getObject())
       ->addVars($emailSenderEvent->getVars())
+      ->addAttachementFiles($emailSenderEvent->getAttachementFiles())
       ->execute();
   }
 
