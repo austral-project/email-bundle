@@ -161,6 +161,20 @@ class EmailSender
   }
 
   /**
+   * @return $this
+   */
+  public function cleanEmailSender()
+  {
+    $this->vars = array();
+    $this->varsObject = array();
+    $this->object = null;
+    $this->attachementFiles = array();
+    $this->language = null;
+    $this->emailTemplate = null;
+    return $this;
+  }
+
+  /**
    * @param string $language
    *
    * @return EmailSender
@@ -292,10 +306,7 @@ class EmailSender
    */
   public function addAttachementFiles(array $attachementFiles = array()): EmailSender
   {
-    if($attachementFiles)
-    {
-      $this->attachementFiles = $attachementFiles;
-    }
+    $this->attachementFiles = $attachementFiles;
     return $this;
   }
 
@@ -426,6 +437,7 @@ class EmailSender
             }
           }
         }
+        $this->cleanEmailSender();
       }
       catch (Exception $exception) {
         $emailLog = new EmailLog();
