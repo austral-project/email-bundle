@@ -128,7 +128,9 @@ class EmailTransform
         if($replace)
         {
           $emailTemplateHtml = AustralTools::replaceKeyByValue($emailTemplateHtml, $this->vars);
-          $emailTemplateHtml = $this->configReplaceDom ? $this->configReplaceDom->replaceDom($emailTemplateHtml, UrlGeneratorInterface::ABSOLUTE_URL): $emailTemplateHtml;
+          if($emailTemplateHtml) {
+            $emailTemplateHtml = $this->configReplaceDom ? $this->configReplaceDom->replaceDom($emailTemplateHtml, UrlGeneratorInterface::ABSOLUTE_URL): $emailTemplateHtml;
+          }
         }
         return $emailTemplateHtml;
       }
