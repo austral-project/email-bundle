@@ -13,9 +13,9 @@ namespace Austral\EmailBundle\Entity;
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateTranslateInterface;
 use Austral\EmailBundle\Model\EmailAddress;
-use Austral\EntityTranslateBundle\Entity\Interfaces\EntityTranslateMasterInterface;
+use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
 
-use Austral\EntityTranslateBundle\Entity\Interfaces\EntityTranslateChildInterface;
+use Austral\EntityBundle\Entity\Interfaces\TranslateChildInterface;
 use Austral\EntityTranslateBundle\Entity\Traits\EntityTranslateChildTrait;
 
 use Austral\EntityBundle\Entity\Entity;
@@ -34,7 +34,7 @@ use Ramsey\Uuid\Uuid;
  * @abstract
  * @ORM\MappedSuperclass
  */
-abstract class EmailTemplateTranslate extends Entity implements EmailTemplateTranslateInterface, EntityInterface, EntityTranslateChildInterface
+abstract class EmailTemplateTranslate extends Entity implements EmailTemplateTranslateInterface, EntityInterface, TranslateChildInterface
 {
 
   use EntityTranslateChildTrait;
@@ -48,11 +48,11 @@ abstract class EmailTemplateTranslate extends Entity implements EmailTemplateTra
   protected $id;
 
   /**
-   * @var EmailTemplateInterface|EntityTranslateMasterInterface
+   * @var EmailTemplateInterface|TranslateMasterInterface
    * @ORM\ManyToOne(targetEntity="\Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface", inversedBy="translates", cascade={"persist"})
    * @ORM\JoinColumn(name="master_id", referencedColumnName="id")
    */
-  protected EntityTranslateMasterInterface $master;
+  protected TranslateMasterInterface $master;
   
   /**
    * @var boolean

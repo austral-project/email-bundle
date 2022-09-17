@@ -14,7 +14,7 @@ use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
 use Austral\EmailBundle\Repository\EmailTemplateRepository;
 
 use Austral\EntityBundle\EntityManager\EntityManager;
-use Austral\EntityTranslateBundle\Entity\Interfaces\EntityTranslateMasterInterface;
+use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**
@@ -35,11 +35,11 @@ class EmailTemplateEntityManager extends EntityManager
   /**
    * @param array $values
    *
-   * @return EmailTemplateInterface|EntityTranslateMasterInterface
+   * @return EmailTemplateInterface|TranslateMasterInterface
    */
   public function create(array $values = array()): EmailTemplateInterface
   {
-    /** @var EmailTemplateInterface|EntityTranslateMasterInterface $object */
+    /** @var EmailTemplateInterface|TranslateMasterInterface $object */
     $object = parent::create($values);
     $object->setCurrentLanguage($this->currentLanguage);
     $object->createNewTranslateByLanguage();

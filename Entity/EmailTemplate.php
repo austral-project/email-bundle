@@ -17,8 +17,8 @@ use Austral\EntityBundle\Entity\Entity;
 use Austral\EntityBundle\Entity\EntityInterface;
 use Austral\EntityBundle\Entity\Traits\EntityTimestampableTrait;
 
-use Austral\EntityTranslateBundle\Entity\Interfaces\EntityTranslateChildInterface;
-use Austral\EntityTranslateBundle\Entity\Interfaces\EntityTranslateMasterInterface;
+use Austral\EntityBundle\Entity\Interfaces\TranslateChildInterface;
+use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
 use Austral\EntityTranslateBundle\Entity\Traits\EntityTranslateMasterTrait;
 
 use Doctrine\Common\Collections\Collection;
@@ -33,7 +33,7 @@ use Ramsey\Uuid\Uuid;
  * @abstract
  * @ORM\MappedSuperclass
  */
-abstract class EmailTemplate extends Entity implements EmailTemplateInterface, EntityInterface, EntityTranslateMasterInterface
+abstract class EmailTemplate extends Entity implements EmailTemplateInterface, EntityInterface, TranslateMasterInterface
 {
 
   const TYPE_TEMPLATE = "template";
@@ -100,10 +100,10 @@ abstract class EmailTemplate extends Entity implements EmailTemplateInterface, E
   }
 
   /**
-   * @return EntityTranslateChildInterface|EmailTemplateTranslateInterface|null
+   * @return TranslateChildInterface|EmailTemplateTranslateInterface|null
    * @throws Exception
    */
-  public function getTranslateCurrent(): ?EntityTranslateChildInterface
+  public function getTranslateCurrent(): ?TranslateChildInterface
   {
     return $this->getTranslateCurrentTrait();
   }

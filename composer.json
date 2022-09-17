@@ -5,7 +5,7 @@
   "keywords":                                 ["Austral", "Email"],
   "license":                                  "MIT",
   "homepage":                                 "https://austral.dev",
-  "version":                                  "3.0",
+  "version":                                  "3.1",
   "authors": [
     {
       "name":                                 "Matthieu Beurel",
@@ -16,9 +16,9 @@
   "require": {
     "php":                                    "^7.4 || ^8.0",
 
-    "austral/tools-bundle":                   "^3.0",
-    "austral/entity-translate-bundle":        "^3.0",
-    "austral/entity-bundle":                  "^3.0",
+    "austral/tools-bundle":                   "^3.1",
+    "austral/entity-translate-bundle":        "^3.1",
+    "austral/entity-bundle":                  "^3.1",
 
     "symfony/routing":                        "^5.4",
     "symfony/proxy-manager-bridge":           "^5.4",

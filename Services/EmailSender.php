@@ -22,7 +22,7 @@ use Austral\EmailBundle\Model\EmailAttachementFile;
 use Austral\EmailBundle\Model\EmailLog;
 
 use Austral\EntityBundle\Entity\EntityInterface;
-use Austral\EntityTranslateBundle\Entity\Interfaces\EntityTranslateMasterInterface;
+use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
 use Austral\ToolsBundle\AustralTools;
 
 use Austral\ToolsBundle\Services\ServicesStatusChecker;
@@ -78,7 +78,7 @@ class EmailSender
   protected ?EntityInterface $object = null;
 
   /**
-   * @var EmailTemplateInterface|EntityTranslateMasterInterface|null
+   * @var EmailTemplateInterface|TranslateMasterInterface|null
    */
   protected ?EmailTemplateInterface $emailTemplate = null;
 
@@ -209,7 +209,7 @@ class EmailSender
       throw new Exception("The language is required !!!");
     }
 
-    /** @var EmailTemplateInterface|EntityTranslateMasterInterface $emailTemplate */
+    /** @var EmailTemplateInterface|TranslateMasterInterface $emailTemplate */
     $emailTemplate = $this->emailEntityManager->setCurrentLanguage($this->language)->retreiveByKeyname($emailTemplateKeyname);
     if(!$emailTemplate)
     {

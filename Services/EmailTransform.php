@@ -16,7 +16,7 @@ use Austral\EmailBundle\Entity\EmailTemplate;
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
 use Austral\EmailBundle\Model\EmailAddress;
 use Austral\EntityBundle\Entity\EntityInterface;
-use Austral\EntityTranslateBundle\Entity\Interfaces\EntityTranslateMasterInterface;
+use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
 use Austral\ToolsBundle\AustralTools;
 use Austral\WebsiteBundle\Services\ConfigReplaceDom;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -45,7 +45,7 @@ class EmailTransform
   protected ?ConfigReplaceDom $configReplaceDom;
 
   /**
-   * @var EmailTemplateInterface|EntityTranslateMasterInterface|null
+   * @var EmailTemplateInterface|TranslateMasterInterface|null
    */
   protected ?EmailTemplateInterface $emailTemplate = null;
 
