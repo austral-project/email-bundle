@@ -1,7 +1,7 @@
 Changelog
 =========
 
-### Version 3.1.0 (2021-09-17)
+### Version 3.1.0 (2022-09-17)
 * Updated bundles version to 3.1 for use the new Entities Interfaces
 
 ### Version 3.0.0 (2021-02-10)
