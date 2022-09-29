@@ -163,7 +163,7 @@ class EmailSender
   /**
    * @return $this
    */
-  public function cleanEmailSender()
+  public function cleanEmailSender(): EmailSender
   {
     $this->vars = array();
     $this->varsObject = array();
