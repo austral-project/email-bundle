@@ -143,6 +143,7 @@ class EmailTransform
 
   /**
    * @return string|null
+   * @throws \Exception
    */
   public function getEntitledEmail(): ?string
   {
@@ -161,6 +162,7 @@ class EmailTransform
 
   /**
    * @return array
+   * @throws \Exception
    */
   public function getEmailsTo(): array
   {
@@ -178,6 +180,7 @@ class EmailTransform
 
   /**
    * @return array
+   * @throws \Exception
    */
   public function getEmailsToCc(): array
   {
@@ -195,6 +198,7 @@ class EmailTransform
 
   /**
    * @return array
+   * @throws \Exception
    */
   public function getEmailsToCci(): array
   {
@@ -212,6 +216,7 @@ class EmailTransform
 
   /**
    * @return string|null
+   * @throws \Exception
    */
   public function getEmailReplyTo(): ?string
   {
