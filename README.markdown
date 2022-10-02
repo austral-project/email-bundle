@@ -17,7 +17,7 @@ composer require austral/email-bundle
 ```
 
 ## Documentation
-See documentation on the [official website](https://austral.dev/bundles/email-bundle)
+See documentation on the [official website](https://austral.dev/en/bundles/email-bundle)
 
 ## Commit Messages
 
