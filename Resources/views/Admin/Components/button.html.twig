@@ -13,6 +13,7 @@
 
 {{ include("@AustralDesign/Components/Button/action.html.twig",
   {
+    tag:      "a",
     url:      field.vars.link,
     class:    "button-action full",
     title:    field.vars.entitled|trans({}, form.mapper.translateDomain),
