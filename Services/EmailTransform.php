@@ -119,7 +119,7 @@ class EmailTransform
       {
         if($this->emailTemplate->getType() == EmailTemplate::TYPE_TEMPLATE)
         {
-          $emailTemplateHtml = $this->twig->render($this->emailTemplate->getTranslateCurrent()->getTemplatePath());
+          $emailTemplateHtml = $this->twig->render($this->emailTemplate->getTranslateCurrent()->getTemplatePath(), array("vars" => $this->vars));
         }
         else
         {
