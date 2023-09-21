@@ -165,6 +165,7 @@ class EmailSender
    */
   public function cleanEmailSender(): EmailSender
   {
+    $this->emailHistoryEvent = null;
     $this->vars = array();
     $this->varsObject = array();
     $this->object = null;
@@ -382,6 +383,7 @@ class EmailSender
         $this->eventDispatcher->dispatch($this->emailHistoryEvent, EmailHistoryEvent::EVENT_AUSTRAL_EMAIL_HISTORY_UPDATE);
       }
     }
+    $this->cleanEmailSender();
   }
 
   public function send()
@@ -437,7 +439,6 @@ class EmailSender
             }
           }
         }
-        $this->cleanEmailSender();
       }
       catch (Exception $exception) {
         $emailLog = new EmailLog();
