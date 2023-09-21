@@ -106,6 +106,19 @@ class EmailSenderEvent extends Event
   }
 
   /**
+   * addVars
+   *
+   * @param string $key
+   * @param $value
+   * @return $this
+   */
+  public function addVars(string $key, $value): EmailSenderEvent
+  {
+    $this->vars[$key] = $value;
+    return $this;
+  }
+
+  /**
    * @return array
    */
   public function getAttachementFiles(): array
