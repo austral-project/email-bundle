@@ -25,7 +25,7 @@ parameters:
       enabled:                    "%austral.admin.modules.email_bundle.email.enabled%"
       navigation:
         position:                 700
-      name:                       "Configuration"
+      name:                       "Email"
       picto:                      "austral-picto-mail"
       route:                      "email"
       translate:                  "male_v"
