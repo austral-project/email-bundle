@@ -52,6 +52,7 @@ parameters:
           route:                  "history"
           class:                  "%austral.admin.class.email_history.class%"
           translate:              "female_c"
+          truncate:               true
           disabledActions:
             - create
             - duplicate
