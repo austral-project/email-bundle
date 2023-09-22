@@ -168,7 +168,11 @@ class EmailTemplateAdmin extends Admin implements AdminModuleInterface
     $listAdminEvent->getListMapper()
       ->addColumn(new Column\Value("name"))
       ->addColumn(new Column\Value("keyname"))
-      ->addColumn(new Column\SwitchValue("isEnabled"))
+      ->addColumn(new Column\SwitchValue("isEnabled", null, 0, 1,
+          $listAdminEvent->getCurrentModule()->generateUrl("change"),
+          $listAdminEvent->getCurrentModule()->isGranted("edit")
+        )
+      )
       ->addColumn(new Column\Template("emails", "fields.emailsList.entitled", "@AustralEmail/Admin/Components/emails.html.twig"))
       ->addColumn(new Column\Date("updated", null, "d/m/Y"));
   }
