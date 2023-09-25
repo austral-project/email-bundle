@@ -5,18 +5,21 @@ services:
     public:         true
 
 ##### Event Subscriber
+  Austral\EmailBundle\EventSubscriber\EmailSenderSubscriber:  "@austral.email_sender.event_subscriber"
   austral.email_sender.event_subscriber:
     class:          Austral\EmailBundle\EventSubscriber\EmailSenderSubscriber
     arguments:      [ "@austral.email_sender"]
     tags:
       - { name: kernel.event_subscriber }
 
+  Austral\EmailBundle\EventSubscriber\EmailHistorySubscriber: "@austral.email_history.event_subscriber"
   austral.email_history.event_subscriber:
     class:          Austral\EmailBundle\EventSubscriber\EmailHistorySubscriber
     arguments:      [ "@austral.entity_manager.email_history" ]
     tags:
       - { name: kernel.event_subscriber }
 
+  Austral\EmailBundle\EventSubscriber\EmailTemplateViewSubscriber:  "@austral.email_template_view.event_subscriber"
   austral.email_template_view.event_subscriber:
     class:          Austral\EmailBundle\EventSubscriber\EmailTemplateViewSubscriber
     arguments:      [ "@austral.email.config" ]
@@ -24,6 +27,7 @@ services:
       - { name: kernel.event_subscriber }
 
 ##### Messenger
+  Austral\EmailBundle\Message\EmailSenderMessageHandler:  "@austral.email_sender.message_handler"
   austral.email_sender.message_handler:
     class:          Austral\EmailBundle\Message\EmailSenderMessageHandler
     arguments:      [ "@austral.email_sender", "@austral.entity_manager" ]
