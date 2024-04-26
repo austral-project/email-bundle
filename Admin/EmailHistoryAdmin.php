@@ -104,6 +104,7 @@ class EmailHistoryAdmin extends Admin implements AdminModuleInterface
   {
     $listAdminEvent->getListMapper()
       ->getSection("default")
+        ->setMaxResult(200)
         ->buildDataHydrate(function(DataHydrateORM $dataHydrate) {
           $dataHydrate->addQueryBuilderPaginatorClosure(function(QueryBuilder $queryBuilder) {
             return $queryBuilder->orderBy("root.created", "DESC");
