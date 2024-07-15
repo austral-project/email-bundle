@@ -13,16 +13,16 @@
     }
   ],
   "require": {
-    "php":                                    "^7.4 || ^8.0",
+    "php":                                    "^7.4 || ^8.0 || ^8.1 || ^8.2",
 
     "austral/tools-bundle":                   "^3.1",
     "austral/entity-translate-bundle":        "^3.1",
     "austral/entity-bundle":                  "^3.1",
 
-    "symfony/routing":                        "^5.4",
-    "symfony/proxy-manager-bridge":           "^5.4",
-    "symfony/notifier":                       "^5.4",
-    "symfony/mailer":                         "^5.4"
+    "symfony/routing":                        "^5.4 || ^6.4",
+    "symfony/proxy-manager-bridge":           "^5.4 || ^6.4",
+    "symfony/notifier":                       "^5.4 || ^6.4",
+    "symfony/mailer":                         "^5.4 || ^6.4"
   },
   "require-dev": {
   },
