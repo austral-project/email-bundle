@@ -404,25 +404,38 @@ class EmailSender
         /** @var string $emailTemplateAddress */
         foreach($this->emailTransform->getEmailsTo() as $emailTemplateAddress)
         {
-          $emailTemplateSymfony->addTo($emailTemplateAddress);
+          if($emailTemplateAddress)
+          {
+            $emailTemplateSymfony->addTo($emailTemplateAddress);
+          }
         }
 
         /** @var string $emailTemplateAddress */
         foreach($this->emailTransform->getEmailsToCc() as $emailTemplateAddress)
         {
-          $emailTemplateSymfony->addCc($emailTemplateAddress);
+          if($emailTemplateAddress)
+          {
+            $emailTemplateSymfony->addCc($emailTemplateAddress);
+          }
         }
 
         /** @var string $emailTemplateAddress */
         foreach($this->emailTransform->getEmailsToCci() as $emailTemplateAddress)
         {
-          $emailTemplateSymfony->addBcc($emailTemplateAddress);
+          if($emailTemplateAddress)
+          {
+            $emailTemplateSymfony->addBcc($emailTemplateAddress);
+          }
         }
 
         if($this->emailTemplate->getTranslateCurrent()->getEmailReplyTo())
         {
-          $emailTemplateSymfony->replyTo($this->emailTransform->getEmailReplyTo());
+          if($this->emailTransform->getEmailReplyTo())
+          {
+            $emailTemplateSymfony->replyTo($this->emailTransform->getEmailReplyTo());
+          }
         }
+
         $emailTemplateSymfony->subject($this->emailTransform->getEntitledEmail());
         $emailTemplateSymfony->html($this->emailTransform->getContentEmail(true));
 
