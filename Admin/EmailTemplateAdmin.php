@@ -103,7 +103,8 @@ class EmailTemplateAdmin extends Admin implements AdminModuleInterface
     $formType = clone $this->container->get('austral.form.type.master')->setFormMapper($formMapper);
 
     /** @var Form $form */
-    $form = $this->container->get('form.factory')->createNamed("form_email_send", get_class($formType), $defaultValues);
+    $form = $actionAdminEvent->getAdminHandler()
+      ->getFormFactory()->createNamed("form_email_send", get_class($formType), $defaultValues);
     if($actionAdminEvent->getRequest()->getMethod() == 'POST')
     {
       $formMapper->setFormStatus(null)->setFormSend(true);
