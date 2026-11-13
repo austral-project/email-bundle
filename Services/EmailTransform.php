@@ -127,7 +127,7 @@ class EmailTransform
         }
         if($replace)
         {
-          $emailTemplateHtml = AustralTools::replaceKeyByValue($emailTemplateHtml, $this->vars);
+          $emailTemplateHtml = AustralTools::replaceKeyByValue($emailTemplateHtml, $this->vars, false);
           if($emailTemplateHtml) {
             $emailTemplateHtml = $this->configReplaceDom ? $this->configReplaceDom->replaceDom($emailTemplateHtml, UrlGeneratorInterface::ABSOLUTE_URL): $emailTemplateHtml;
           }
@@ -147,7 +147,7 @@ class EmailTransform
    */
   public function getEntitledEmail(): ?string
   {
-    return $this->emailTemplate ? AustralTools::replaceKeyByValue($this->emailTemplate->getTranslateCurrent()->getEntitledEmail(), $this->vars) : null;
+    return $this->emailTemplate ? AustralTools::replaceKeyByValue($this->emailTemplate->getTranslateCurrent()->getEntitledEmail(), $this->vars, false) : null;
   }
 
 
@@ -157,7 +157,7 @@ class EmailTransform
    */
   public function getEmailFrom()
   {
-    return $this->emailTemplate ? AustralTools::replaceKeyByValue($this->emailTemplate->getTranslateCurrent()->getEmailFrom(), $this->vars) : null;
+    return $this->emailTemplate ? AustralTools::replaceKeyByValue($this->emailTemplate->getTranslateCurrent()->getEmailFrom(), $this->vars, false) : null;
   }
 
   /**
@@ -172,7 +172,7 @@ class EmailTransform
       /** @var EmailAddress $emailTemplateAddress */
       foreach($this->emailTemplate->getTranslateCurrent()->getEmailsTo() as $emailTemplateAddress)
       {
-        $emails[] = $this->anonymizeEmail(AustralTools::replaceKeyByValue($emailTemplateAddress->getEmail(), $this->vars));
+        $emails[] = $this->anonymizeEmail(AustralTools::replaceKeyByValue($emailTemplateAddress->getEmail(), $this->vars, false));
       }
     }
     return $emails;
@@ -190,7 +190,7 @@ class EmailTransform
       /** @var EmailAddress $emailTemplateAddress */
       foreach($this->emailTemplate->getTranslateCurrent()->getEmailsToCc() as $emailTemplateAddress)
       {
-        $emails[] = $this->anonymizeEmail(AustralTools::replaceKeyByValue($emailTemplateAddress->getEmail(), $this->vars));
+        $emails[] = $this->anonymizeEmail(AustralTools::replaceKeyByValue($emailTemplateAddress->getEmail(), $this->vars, false));
       }
     }
     return $emails;
@@ -208,7 +208,7 @@ class EmailTransform
       /** @var EmailAddress $emailTemplateAddress */
       foreach($this->emailTemplate->getTranslateCurrent()->getEmailsToCci() as $emailTemplateAddress)
       {
-        $emails[] = $this->anonymizeEmail(AustralTools::replaceKeyByValue($emailTemplateAddress->getEmail(), $this->vars));
+        $emails[] = $this->anonymizeEmail(AustralTools::replaceKeyByValue($emailTemplateAddress->getEmail(), $this->vars, false));
       }
     }
     return $emails;
@@ -220,7 +220,7 @@ class EmailTransform
    */
   public function getEmailReplyTo(): ?string
   {
-    return $this->emailTemplate ? $this->anonymizeEmail(AustralTools::replaceKeyByValue($this->emailTemplate->getTranslateCurrent()->getEmailReplyTo(), $this->vars)) : null;
+    return $this->emailTemplate ? $this->anonymizeEmail(AustralTools::replaceKeyByValue($this->emailTemplate->getTranslateCurrent()->getEmailReplyTo(), $this->vars, false)) : null;
   }
 
   /**
