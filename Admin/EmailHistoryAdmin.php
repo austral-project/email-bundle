@@ -22,7 +22,7 @@ use Austral\AdminBundle\Admin\Event\ListAdminEvent;
 use Austral\EmailBundle\Event\EmailSenderEvent;
 use Austral\EmailBundle\Services\EmailTransform;
 
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 
 use Austral\FormBundle\Field as Field;
 use Austral\FormBundle\Mapper\Fieldset;

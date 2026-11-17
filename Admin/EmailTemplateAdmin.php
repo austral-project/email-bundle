@@ -24,7 +24,7 @@ use Austral\EmailBundle\Event\EmailSenderEvent;
 use Austral\EmailBundle\Event\EmailTemplateViewEvent;
 use Austral\EmailBundle\Form\Type\EmailAddressFormType;
 use Austral\EmailBundle\Model\EmailAddress;
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 use Austral\FormBundle\Field as Field;
 use Austral\FormBundle\Mapper\Fieldset;
 use Austral\FormBundle\Mapper\FormMapper;

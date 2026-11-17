@@ -14,7 +14,7 @@ use Austral\EmailBundle\Entity\Interfaces\EmailHistoryInterface;
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
 use Austral\EmailBundle\Repository\EmailHistoryRepository;
 
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 use Austral\EntityBundle\EntityManager\EntityManager;
 use Doctrine\ORM\NonUniqueResultException;
 

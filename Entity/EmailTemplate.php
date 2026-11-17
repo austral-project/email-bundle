@@ -14,11 +14,11 @@ use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
 
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateTranslateInterface;
 use Austral\EntityBundle\Entity\Entity;
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 use Austral\EntityBundle\Entity\Traits\EntityTimestampableTrait;
 
-use Austral\EntityBundle\Entity\Interfaces\TranslateChildInterface;
-use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
+use Austral\Contracts\Translate\TranslateChildInterface;
+use Austral\Contracts\Translate\TranslateMasterInterface;
 use Austral\EntityTranslateBundle\Entity\Traits\EntityTranslateMasterTrait;
 
 use Doctrine\Common\Collections\Collection;

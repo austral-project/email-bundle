@@ -11,7 +11,7 @@
 namespace Austral\EmailBundle\Repository;
 
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 use Austral\EntityBundle\Repository\EntityRepository;
 use Doctrine\ORM\NoResultException;
 

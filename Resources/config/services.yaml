@@ -67,7 +67,7 @@ services:
       - "@austral.email_transform"
       - "@austral.entity_manager.email_template"
       - "@austral.email.config"
-      - "@austral.tools.services.status-checker"
+      - "@austral.tools.status-checker"
       - "@event_dispatcher"
       - "@?messenger.default_bus"
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Austral EmailBundle package.
+ * This file is part of the Austral Email Bundle package.
  *
  * (c) Austral <support@austral.dev>
  *

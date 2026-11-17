@@ -1,36 +1,44 @@
 {
-  "name":                                     "austral/email-bundle",
-  "type":                                     "symfony-bundle",
-  "description":                              "Create template email and view send email log",
-  "keywords":                                 ["Austral", "Email"],
-  "license":                                  "MIT",
-  "homepage":                                 "https://austral.dev",
-  "authors": [
-    {
-      "name":                                 "Matthieu Beurel",
-      "email":                                "matthieu@austral.dev",
-      "role":                                 "Developer"
-    }
-  ],
-  "require": {
-    "php":                                    "^8.0 || ^8.1 || ^8.2",
-
-    "austral/tools-bundle":                   "^3.1",
-    "austral/entity-translate-bundle":        "^3.1",
-    "austral/entity-bundle":                  "^3.1",
-
-    "symfony/routing":                        "^5.4 || ^6.4",
-    "symfony/proxy-manager-bridge":           "^5.4 || ^6.4",
-    "symfony/notifier":                       "^5.4 || ^6.4",
-    "symfony/mailer":                         "^5.4 || ^6.4"
-  },
-  "require-dev": {
-  },
-  "config": {
-    "sort-packages":                          true
-  },
-  "autoload": {
-    "psr-4": { "Austral\\EmailBundle\\": "" }
-  },
-  "minimum-stability":                        "dev"
+    "name": "austral/email-bundle",
+    "type": "symfony-bundle",
+    "description": "Create template email and view send email log",
+    "keywords": [
+        "Austral",
+        "Email"
+    ],
+    "license": "MIT",
+    "homepage": "https://austral.dev",
+    "authors": [
+        {
+            "name": "Matthieu Beurel",
+            "email": "matthieu@austral.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2 <9.0",
+        "austral/contracts": "^4.0",
+        "austral/tools-bundle": "^4.0",
+        "austral/entity-translate-bundle": "^4.0",
+        "austral/entity-bundle": "^4.0",
+        "symfony/routing": "^7.4",
+        "symfony/proxy-manager-bridge": "^6.4 || ^7.4",
+        "symfony/notifier": "^7.4",
+        "symfony/mailer": "^7.4"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.64",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Austral\\EmailBundle\\": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -14,7 +14,7 @@ use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
 use Austral\EmailBundle\Repository\EmailTemplateRepository;
 
 use Austral\EntityBundle\EntityManager\EntityManager;
-use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
+use Austral\Contracts\Translate\TranslateMasterInterface;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**

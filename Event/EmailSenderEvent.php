@@ -12,7 +12,7 @@ namespace Austral\EmailBundle\Event;
 
 use Austral\EmailBundle\Entity\EmailHistory;
 use Austral\EmailBundle\Entity\Interfaces\EmailHistoryInterface;
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**

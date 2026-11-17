@@ -21,8 +21,8 @@ use Austral\EmailBundle\Model\EmailAddress;
 use Austral\EmailBundle\Model\EmailAttachementFile;
 use Austral\EmailBundle\Model\EmailLog;
 
-use Austral\EntityBundle\Entity\EntityInterface;
-use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
+use Austral\Contracts\Entity\EntityInterface;
+use Austral\Contracts\Translate\TranslateMasterInterface;
 use Austral\ToolsBundle\AustralTools;
 
 use Austral\ToolsBundle\Services\ServicesStatusChecker;

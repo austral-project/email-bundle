@@ -12,7 +12,7 @@ namespace Austral\EmailBundle\Message;
 
 use Austral\EmailBundle\Entity\Interfaces\EmailHistoryInterface;
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 
 /**
  * Austral EmailSender Messenger.

@@ -13,13 +13,13 @@ namespace Austral\EmailBundle\Entity;
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateTranslateInterface;
 use Austral\EmailBundle\Model\EmailAddress;
-use Austral\EntityBundle\Entity\Interfaces\TranslateMasterInterface;
+use Austral\Contracts\Translate\TranslateMasterInterface;
 
-use Austral\EntityBundle\Entity\Interfaces\TranslateChildInterface;
+use Austral\Contracts\Translate\TranslateChildInterface;
 use Austral\EntityTranslateBundle\Entity\Traits\EntityTranslateChildTrait;
 
 use Austral\EntityBundle\Entity\Entity;
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 use Austral\EntityBundle\Entity\Traits\EntityTimestampableTrait;
 
 

@@ -15,7 +15,7 @@ use Austral\EmailBundle\Entity\Interfaces\EmailHistoryInterface;
 use Austral\EmailBundle\Model\EmailAddress;
 use Austral\EmailBundle\Model\EmailLog;
 use Austral\EntityBundle\Entity\Entity;
-use Austral\EntityBundle\Entity\EntityInterface;
+use Austral\Contracts\Entity\EntityInterface;
 use Austral\EntityBundle\Entity\Traits\EntityTimestampableTrait;
 
 use Doctrine\ORM\Mapping as ORM;
