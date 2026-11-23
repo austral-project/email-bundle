@@ -21,8 +21,8 @@ use Symfony\Contracts\EventDispatcher\Event;
 class EmailTemplateViewEvent extends Event
 {
 
-  const EVENT_AUSTRAL_EMAIL_TEMPLATE_VIEW_INIT_VARS = "austral.email_template_view.init_vars";
-  const EVENT_AUSTRAL_EMAIL_TEMPLATE_VIEW_RELOAD_VARS = "austral.email_template_view.reload_vars";
+  const string EVENT_AUSTRAL_EMAIL_TEMPLATE_VIEW_INIT_VARS = "austral.email_template_view.init_vars";
+  const string EVENT_AUSTRAL_EMAIL_TEMPLATE_VIEW_RELOAD_VARS = "austral.email_template_view.reload_vars";
 
   /**
    * @var EmailTemplateInterface

@@ -23,7 +23,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 class EmailSenderEvent extends Event
 {
 
-  const EVENT_AUSTRAL_EMAIL_SENDER_SEND= "austral.event.email_sender.send";
+  const string EVENT_AUSTRAL_EMAIL_SENDER_SEND= "austral.event.email_sender.send";
 
   /**
    * @var string

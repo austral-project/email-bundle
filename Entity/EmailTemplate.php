@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
+
 namespace Austral\EmailBundle\Entity;
 
 use Austral\EmailBundle\Entity\Interfaces\EmailTemplateInterface;
@@ -36,8 +36,8 @@ use Ramsey\Uuid\Uuid;
 abstract class EmailTemplate extends Entity implements EmailTemplateInterface, EntityInterface, TranslateMasterInterface
 {
 
-  const TYPE_TEMPLATE = "template";
-  const TYPE_WYSIWYG = "wysiwyg";
+  const string TYPE_TEMPLATE = "template";
+  const string TYPE_WYSIWYG = "wysiwyg";
 
   use EntityTranslateMasterTrait {
     getTranslateCurrent as getTranslateCurrentTrait;
@@ -61,7 +61,7 @@ abstract class EmailTemplate extends Entity implements EmailTemplateInterface, E
    * @ORM\Column(name="is_enabled", type="boolean", nullable=true, options={"default": false})
    */
   protected bool $isEnabled = false;
-  
+
   /**
    * @var string|null
    * @ORM\Column(name="type", type="string", length=255, nullable=false )
@@ -73,7 +73,7 @@ abstract class EmailTemplate extends Entity implements EmailTemplateInterface, E
    * @ORM\Column(name="name", type="string", length=255, nullable=false )
    */
   protected ?string $name = null;
-  
+
   /**
    * @var string|null
    * @ORM\Column(name="keyname", type="string", length=255, nullable=false )
